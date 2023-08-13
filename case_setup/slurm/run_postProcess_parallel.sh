@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --job-name=ANGLE
-#SBATCH --output=/home/%u/ahmed_body_slant/slant_angle_ANGLE/%x-%j_solve.log
+#SBATCH --output=/home/%u/ahmed_body_slant/slant_angle_ANGLE/%x-%j_post.log
 #SBATCH --mail-user=YOUR_EMAIL
 #SBATCH --mail-type=BEGIN,FAIL,END
 #SBATCH --get-user-env
