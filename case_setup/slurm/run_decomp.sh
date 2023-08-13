@@ -15,5 +15,4 @@
 #SBATCH --partition=YOUR_PARTITION
 
 module load openfoam;
-decomposePar -case $HOME/ahmed_body_slant/slant_angle_ANGLE;
-
+decomposePar -case $AHMED_SLANT_PATH/slant_angle_ANGLE;

@@ -43,9 +43,15 @@ The repo should contain the following files:
             ├── fvSchemes
             ├── fvSolution
             └── meshDict
-    ├── generate_case_geometry_nolegs.py
+    ├── copy_case_setup.sh
+    ├── gather_cd.sh
+    ├── gather_residuals.sh
     ├── generate_case_geometry.py
+    ├── generate_case_geometry_nolegs.py
+    ├── generate_case_mesh.sh
     ├── modify_stl_patch_merge.sh
+    ├── plot_cd.py
+    ├── plot_residuals.py
     ├── README.md
     └── stl_generator_slant_angle.py
 -----------------------------------

@@ -15,4 +15,4 @@
 #SBATCH --partition=YOUR_PARTITION
 
 module load openfoam;
-mpirun -np 120 simpleFoam -case $HOME/ahmed_body_slant/slant_angle_ANGLE -parallel;
+mpirun -np 120 simpleFoam -case $AHMED_SLANT_PATH/slant_angle_ANGLE -parallel;
