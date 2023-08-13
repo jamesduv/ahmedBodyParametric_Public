@@ -14,4 +14,4 @@
 #SBATCH --account=YOUR_ACCOUNT
 #SBATCH --partition=YOUR_PARTITION
 
-bash $AHMED_REPO/generate_case_mesh.sh ANGLE;
+bash $AHMED_REPO_PUB/generate_case_mesh.sh ANGLE;
