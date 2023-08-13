@@ -55,3 +55,16 @@ The repo should contain the following files:
     ├── README.md
     └── stl_generator_slant_angle.py
 -----------------------------------
+
+Notional Workflow for Parallel Computations
+----------------
+1. Run copy_case_setup.sh. Copies files from case_setup to case_path = ${AHMED_SLANT_PATH}/slant_angle_${ANGLE}, where ANGLE is the script argument.
+2. Generate the geometry .stl files using generate_case_geometry_nolegs.py or generate_case_geometry.py.
+3. Merge the .stl files and name regions using modify_stl_patch_merge.sh.
+4. Generate the mesh, using case_path/slurm/run_mesh.sh.
+5. Decompose the mesh, using case_path/slurm/run_decomp.sh. Modify case_path/system/decomposeParDict  and all parallel slurm scripts to have appropriate number of subdomains and settings.
+6. Initialize with potential flow solution, increasing stability and convergence, using case_path/slurm/run_potentialFoam_parallel.sh. 
+7. Run the simulation, using case_path/slurm/run_simpleFoam_parallel.sh.
+8. Post process, must rename case_path/system/controlDict -> case_path/system/controlDict.solve (to retain) and case_path/system/controlDict.postProcess -> case_path/system/controlDict before running case_path/slurm/run_postProcess_parallel.sh.
+   
+If not running in parallel, omit step 5 and remove mpirun portions of later commands.

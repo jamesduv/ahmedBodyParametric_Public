@@ -12,6 +12,8 @@ init_path="${AHMED_REPO_PUB}/case_setup/0"
 slurm_path="${AHMED_REPO_PUB}/case_setup/slurm"
 case_path="${AHMED_SLANT_PATH}/slant_angle_${angle}"
 
+mkdir $case_path
+
 cp -r $system_path $case_path
 cp -r $constant_path $case_path
 cp -r $init_path $case_path
