@@ -1,7 +1,0 @@
-{
-    "python.pythonPath"         : "/home/jd/anaconda3/envs/tf2_kt/bin/python",
-    "debug.focusWindowOnBreak"  : false,
-    "editor.wordWrap"           : "off",
-    "justMyCode"                : false,
-    "editor.rulers"             : [80,120]
-}
