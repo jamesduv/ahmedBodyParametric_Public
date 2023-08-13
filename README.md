@@ -17,6 +17,32 @@ The repo should contain the following files:
     ahmedBodyParametric_Public
     ├── case_setup
         ├── 0
+            ├── include
+                ├── fixedInlet
+                ├── initialConditions
+                └── slipSymmetryPatches
+            ├── k
+            ├── nut
+            ├── omega
+            ├── P
+            └── U
+        ├── constant
+            ├── transportProperties
+            └── turbulenceProperties
+        ├── slurm
+            ├── run_decomp.sh
+            ├── run_mesh.sh
+            ├── run_postProcess_parallel.sh
+            ├── run_potentialFoam_parallel.sh
+            └── run_simpleFoam_parallel.sh
+        └── system
+            ├── controlDict
+            ├── controlDict.postProcess
+            ├── createPatchDict
+            ├── decomposeParDict
+            ├── fvSchemes
+            ├── fvSolution
+            └── meshDict
     ├── generate_case_geometry_nolegs.py
     ├── generate_case_geometry.py
     ├── modify_stl_patch_merge.sh
