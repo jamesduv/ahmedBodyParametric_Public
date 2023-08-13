@@ -17,6 +17,7 @@ The repo should contain the following files:
     ahmedBodyParametric_Public
     ├── generate_case_geometry_nolegs.py
     ├── generate_case_geometry.py
+    ├── modify_stl_patch_merge.sh
     ├── README.md
     └── stl_generator_slant_angle.py
 -----------------------------------

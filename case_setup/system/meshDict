@@ -1,0 +1,98 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version   2.0;
+    format    ascii;
+    class     dictionary;
+    location  "system";
+    object    meshDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+surfaceFile "domain_merged.stl";
+
+maxCellSize 75.0;
+
+boundaryCellSize 75.0;
+
+keepCellsIntersectingBoundary  0;
+
+checkForGluedMesh   0;
+
+
+localRefinement
+{
+  
+    wallBottom
+    {
+        cellSize                    50;
+        refinementThickness         20;
+    }
+         
+    "wallAhmed.*"
+    {
+        cellSize                    4;
+        refinementThickness         50;
+    }
+          
+}
+
+objectRefinements
+{
+    aroundTheBody
+    //1 body length in front
+    //4 body lengths behind  
+    {
+        type box;
+        cellSize 15;   
+        centre  (1044 0 0);
+        lengthX  6264;
+        lengthY  800;
+        lengthZ  1000;
+    }
+
+}
+
+
+boundaryLayers
+{
+    
+    optimiseLayer 1;
+    optimisationParameters
+    {
+        nSmoothNormals          50;
+        relThicknessTol 		0.1;
+        featureSizeFactor 		0.8;
+        reCalculateNormals 		1; 
+        maxNumIterations 		50;
+    }
+
+    patchBoundaryLayers
+    {
+        
+        "wallAhmed.*"
+        {
+            nLayers  20;
+            thicknessRatio 1.1;     
+            allowDiscontinuity  0; 
+        }
+        
+        
+        "wallBottom.*"
+        {
+            nLayers  5;
+            thicknessRatio 1.1;     
+            allowDiscontinuity  0; 
+        }       
+ 
+    }
+}          
+     
+// ************************************************************************* //

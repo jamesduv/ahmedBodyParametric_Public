@@ -1,0 +1,91 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "../system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+application     simpleFoam;
+
+startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         1500;
+
+deltaT          1;
+
+writeControl    timeStep;
+
+writeInterval   250;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  8;
+
+writeCompression on;
+
+timeFormat      general;
+
+timePrecision   6;
+
+graphFormat     raw;
+
+runTimeModifiable yes;
+
+functions
+{
+    forces
+    {
+        type			forces;
+        libs			("libforces.so"); //Lib to load
+        patches			(wallAhmed); // change to your patch name
+        rho				rhoInf;
+        rhoInf			1.225;      //Reference density for fluid
+        CofR			( 0 0 0 );; //Origin for moment calculations
+        writeControl	timeStep;
+        writeInterval	1;
+    }
+    forceCoeffs
+    {
+        type			forceCoeffs;
+        libs			("libforces.so");
+        patches			(wallAhmed); //change to your patch name
+        rho				rhoInf;
+        rhoInf			1.225;
+        CofR			( 0 0 0 );
+        liftDir			(0 0 1);
+        dragDir			(1 0 0);
+        pitchAxis		(0 -1 0);
+        magUInf			60.0;
+        lRef			1.044;
+        Aref			0.056016; //half frontal area
+        writeControl	timeStep;
+        writeInterval	1;
+    }
+/*
+    yPlus1
+    {
+    // Mandatory entries (unmodifiable)
+        type            yPlus;
+        libs            ("libfieldFunctionObjects.so");
+        patches         (wallAhmed);
+        writeControl 	timeStep;
+        writeInterval   1;
+    }
+*/
+  
+}
