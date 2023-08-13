@@ -74,3 +74,7 @@ Notional Workflow for Parallel Computations
 8. Post process, must rename case_path/system/controlDict -> case_path/system/controlDict.solve (to retain) and case_path/system/controlDict.postProcess -> case_path/system/controlDict before running case_path/slurm/run_postProcess_parallel.sh.
    
 If not running in parallel, omit step 5 and remove mpirun portions of later commands.
+
+Wall Distance from only the Ahmed body
+----------------
+These simulations are used to train coordinate-based neural networks as part of my research, and model input includes a signed distance of minimum distance function coordinate as additional input. The files within ahmedPatchDist define a utility to do that using built-in OpenFOAM functionality. The folder and its contents should be placed in $WM_PROJECT_USER_DIR/applications. It is compiled and linked by navigating to that directory and typing wmake ahmedWallDist. It should then be available from the command line. Navigate to a case_path, simulation need not be run yet but a mesh should be present, then run the utility by typing ahmedWallDist.
