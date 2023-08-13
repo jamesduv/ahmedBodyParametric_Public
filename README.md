@@ -15,6 +15,8 @@ The repo should contain the following files:
 
 -----------------------------------
     ahmedBodyParametric_Public
+    ├── case_setup
+        ├── 0
     ├── generate_case_geometry_nolegs.py
     ├── generate_case_geometry.py
     ├── modify_stl_patch_merge.sh
