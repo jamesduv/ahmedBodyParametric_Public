@@ -3,7 +3,7 @@
 # Copy the case setup files to the case directory
 
 #Args:
-#   $1: the slant angle
+#   $1: the slant angle, include all decimal places
 #===============================================================================
 angle=$1
 system_path="${AHMED_REPO_PUB}/case_setup/system"
@@ -18,8 +18,9 @@ cp -r $init_path $case_path
 cp -r $slurm_path $case_path
 
 # replace ANGLE with ${angle} in slurm files
-case_slurm_path="${case_path}/slurm/"
+case_slurm_path="${case_path}/slurm"
 rep_str="ANGLE"
-for file in case_slurm_path; do
+for file in $case_slurm_path/*; do
+    #echo $file
     sed -i -e "s/${rep_str}/${angle}/g" $file;
 done

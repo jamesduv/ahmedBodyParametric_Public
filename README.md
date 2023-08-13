@@ -5,8 +5,8 @@ A collection of python and bash scripts to:
 - scripts to control decomposing the domain, initializing with potentialFoam, and running the simulation using simpleFoam 
 
 The scripts depend upon 2 environment variables:
-- $AHMED_REPO_PUB : location of this repository
-- $AHMED_SLANT_PATH : location to generate subdirectories for each desired case. Note that the run files in case_setup/slurm assume this is located at /home/%u/ahmed_body_slant.
+- $AHMED_REPO_PUB   : location of this repository
+- $AHMED_SLANT_PATH : location to generate subdirectories for each case. Note that the run files in case_setup/slurm assume this is located at /home/%u/ahmed_body_slant, update as required.
 
 Contents
 ----------------
